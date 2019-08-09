@@ -2,10 +2,10 @@ import React from 'react'
 import Directory from '../../components/Directory';
 import './style.css';
 
-const HomePage = () => {
+const HomePage = ({history}) => {
   return (
     <div className="homepage">
-      <Directory/>
+      <Directory history={history} />
     </div>
   )
 }
