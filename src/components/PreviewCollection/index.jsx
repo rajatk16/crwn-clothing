@@ -3,14 +3,15 @@ import React from 'react'
 import CollectionItem from '../CollectionItem';
 import './style.css';
 
-const PreviewCollection = ({title, items}) => {
+const PreviewCollection = (props) => {
+  console.log(props)
   return (
     <div className="preview-collection">
       <h1 className="title">
-        {title.toUpperCase()}
+        {props.title.toUpperCase()}
       </h1>
       <div className="preview">
-        {items
+        {props.items
           .filter((item, idx) => idx < 4)
           .map((item) => {
             return (
