@@ -11,19 +11,20 @@ import CheckoutPage from './pages/checkout';
 import SignInAndSignUp from './pages/signInAndSignUp';
 import {auth, createUserProfileDocument} from './firebase/firebase.utils';
 import {setCurrentUser} from './redux/user/userActions';
-import {selectCurrentUser} from './redux/user/userSelectors'
+import {selectCurrentUser} from './redux/user/userSelectors';
 
 class App extends Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
     const {setCurrentUser} = this.props;
+    
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
         userRef.onSnapshot(snapShot => {
-            this.props.setCurrentUser({
+            setCurrentUser({
               id: snapShot.id,
               ...snapShot.data()
             })

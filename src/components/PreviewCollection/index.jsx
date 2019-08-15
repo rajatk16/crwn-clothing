@@ -4,7 +4,6 @@ import CollectionItem from '../CollectionItem';
 import './style.css';
 
 const PreviewCollection = (props) => {
-  console.log(props)
   return (
     <div className="preview-collection">
       <h1 className="title">
